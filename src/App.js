@@ -3,25 +3,37 @@ import { BrowserRouter , Routes, Route}  from "react-router-dom";
 
 import User from './User/pages/users';
 import Newplace from './places/pages/NewPlace'
-
+import USerplaces from "./places/pages/userplaces";
+import MainNavigation from "./component/shared/Navigation/MainNavigation";
 const App = () => { 
   
- return ( 
+   return ( 
  <BrowserRouter>
- <Routes>
-    <Route path="/User" element={<User />} exact />
-    </Routes> 
+  <MainNavigation/>
+  <main>
+   <Routes>
+   <Route path="/User" element={<User />} exact />
+   <Route path="/:userid/places" exact>
+      <USerplaces/>
+   </Route>
+   </Routes> 
+   
     <Routes>
     <Route path="/place/new" element={<Newplace />} exact />
-    </Routes> 
-    
-    
-    </BrowserRouter>
- ); 
+   </Routes> 
+   </main>
+</BrowserRouter>
+); 
   
-}
+
+};
+
+
+
 
 
 export default App;
+
+
 
 
